@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yaraguti Roopanjali | Aspiring Software Engineer</title>
+
+  <!-- Google Fonts: Editorial Serif + Clean Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       DESIGN SYSTEM (Executive Teal + Warm Ivory Theme)
+       ========================================================== */
+    :root {
+      /* Warm Ivory Palette */
+      --bg-ivory: #FAF7F2;
+      --bg-gradient: linear-gradient(180deg, #FAF7F2 0%, #F5EFE6 50%, #FAF8F5 100%);
+      --surface-white: #FFFFFF;
+      --surface-ivory-card: #FCFAF7;
+      --surface-soft: #E6F3F1;
+      
+      /* Refined Teal Accents */
+      --brand-primary: #0F766E;       /* Deep rich teal */
+      --brand-hover: #115E59;         /* Darker teal for interaction */
+      --brand-light: #CCFBF1;         /* Fresh teal pastel */
+      --brand-pill-text: #134E4A;     /* High-contrast teal text */
+      --brand-accent: #0D9488;        /* Vibrant cyan-teal */
+      
+      /* Typography Colors */
+      --text-dark: #1E2927;           /* Charcoal with subtle deep teal tone */
+      --text-muted: #5C6B67;          /* Soft warm slate */
+      --border-subtle: #E8E1D5;       /* Delicate ivory-sand border */
+      --border-teal: #99F6E4;
+      
+      --shadow-sm: 0 4px 14px rgba(15, 118, 110, 0.04);
+      --shadow-md: 0 12px 30px rgba(15, 118, 110, 0.07);
+      --shadow-lg: 0 20px 45px rgba(15, 118, 110, 0.11);
+      
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      color: var(--text-dark);
+      font-family: var(--font-sans);
+      line-height: 1.65;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Ambient Warm Ivory & Teal Glows */
+    body::before, body::after {
+      content: "";
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(20, 184, 166, 0.09) 0%, rgba(250, 247, 242, 0) 70%);
+      z-index: -1;
+      pointer-events: none;
+    }
+    body::before { top: 0; right: 0; }
+    body::after { top: 40%; left: -100px; }
+
+    .container {
+      width: 90%;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================
+       SECTION PILLS & TYPOGRAPHY
+       ========================================================== */
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--surface-soft);
+      color: var(--brand-pill-text);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.35rem 0.9rem;
+      border-radius: 50px;
+      margin-bottom: 0.75rem;
+      border: 1px solid rgba(15, 118, 110, 0.2);
+      letter-spacing: 0.3px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.8vw, 2.75rem);
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.2;
+    }
+
+    .section-title span {
+      color: var(--brand-primary);
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      margin-top: 0.4rem;
+    }
+
+    /* ==========================================================
+       BUTTONS
+       ========================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.6rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--brand-primary);
+      color: #FFFFFF;
+      box-shadow: 0 8px 20px rgba(15, 118, 110, 0.22);
+    }
+
+    .btn-primary:hover {
+      background: var(--brand-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(15, 118, 110, 0.32);
+    }
+
+    .btn-talk-small {
+      padding: 0.35rem 0.85rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border-radius: 20px;
+      background: var(--brand-primary);
+      color: #FFFFFF;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      box-shadow: 0 3px 8px rgba(15, 118, 110, 0.18);
+    }
+
+    .btn-talk-small:hover {
+      background: var(--brand-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-cert-view {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--surface-soft);
+      color: var(--brand-primary);
+      border: 1px solid var(--border-teal);
+      padding: 0.45rem 0.95rem;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 0.8rem;
+      transition: all 0.2s ease;
+      width: fit-content;
+    }
+
+    .btn-cert-view:hover {
+      background: var(--brand-primary);
+      color: #FFFFFF;
+      border-color: var(--brand-primary);
+    }
+
+    /* ==========================================================
+       HEADER & NAVIGATION
+       ========================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: rgba(250, 247, 242, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      z-index: 1000;
+      padding: 0.9rem 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.8rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--brand-primary);
+      font-weight: 600;
+    }
+
+    /* ==========================================================
+       HERO SECTION WITH PROFILE PHOTO
+       ========================================================== */
+    .hero {
+      padding: 4.5rem 0 3.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .hero-pretitle {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--brand-primary);
+      font-style: italic;
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-name {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--text-dark);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-name span {
+      color: var(--brand-primary);
+    }
+
+    .hero-role {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 1.02rem;
+      max-width: 520px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .social-row {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .social-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--surface-white);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand-primary);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .social-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .social-btn:hover {
+      background: var(--brand-primary);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(15, 118, 110, 0.2);
+    }
+
+    .hero-image-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .portrait-arch {
+      width: 310px;
+      height: 390px;
+      border-radius: 160px 160px 24px 24px;
+      background: linear-gradient(145deg, #E6F3F1 0%, #FAF7F2 100%);
+      padding: 10px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      border: 2px solid var(--surface-white);
+    }
+
+    .portrait-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 150px 150px 18px 18px;
+      background: var(--surface-white);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 12%;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .portrait-arch:hover .profile-photo {
+      transform: scale(1.03);
+    }
+
+    /* ==========================================================
+       ABOUT ME SECTION
+       ========================================================== */
+    .section-spacing {
+      padding: 4.5rem 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 3.5rem;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      font-size: 1.02rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-card-mockup {
+      background: var(--surface-white);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .cup-badge {
+      background: linear-gradient(135deg, #E6F3F1 0%, #FAF7F2 100%);
+      border: 1px solid var(--border-subtle);
+      padding: 1.5rem;
+      border-radius: 16px;
+      text-align: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .cup-badge h4 {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      color: var(--brand-primary);
+      margin-bottom: 0.2rem;
+    }
+
+    .cup-badge p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .about-pills-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+
+    .detail-pill {
+      background: var(--surface-ivory-card);
+      border: 1px solid var(--border-subtle);
+      padding: 0.75rem;
+      border-radius: 10px;
+    }
+
+    .detail-pill small {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+
+    .detail-pill strong {
+      color: var(--text-dark);
+      font-size: 0.92rem;
+    }
+
+    /* ==========================================================
+       ACADEMIC JOURNEY (EDUCATION) SECTION
+       ========================================================== */
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .edu-card {
+      background: var(--surface-white);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      padding: 1.8rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .edu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--brand-primary);
+    }
+
+    .edu-badge-tag {
+      display: inline-block;
+      background: var(--surface-soft);
+      color: var(--brand-pill-text);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.28rem 0.75rem;
+      border-radius: 50px;
+      margin-bottom: 0.9rem;
+      width: fit-content;
+      border: 1px solid rgba(15, 118, 110, 0.15);
+    }
+
+    .edu-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--text-dark);
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+
+    .edu-institution {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--brand-primary);
+      margin-bottom: 0.8rem;
+    }
+
+    .edu-score-box {
+      background: var(--surface-ivory-card);
+      border: 1px dashed var(--border-subtle);
+      padding: 0.65rem 0.9rem;
+      border-radius: 8px;
+      margin-top: auto;
+    }
+
+    .edu-score-box strong {
+      display: block;
+      font-size: 1.15rem;
+      color: var(--brand-primary);
+      font-family: var(--font-serif);
+    }
+
+    .edu-score-box span {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================
+       SKILLS SECTION
+       ========================================================== */
+    .skills-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2.5rem;
+      margin-top: 2rem;
+      align-items: center;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-card {
+      background: var(--surface-white);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 1.1rem 0.6rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--brand-primary);
+    }
+
+    .skill-icon-wrap {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--brand-primary);
+      margin-bottom: 0.3rem;
+    }
+
+    .skill-name {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .skill-progress-card {
+      background: var(--surface-white);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2.2rem 2rem;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .radial-circle {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: conic-gradient(var(--brand-primary) 324deg, #CCFBF1 0deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 6px 18px rgba(15, 118, 110, 0.16);
+    }
+
+    .radial-inner {
+      width: 104px;
+      height: 104px;
+      border-radius: 50%;
+      background: var(--surface-white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .radial-inner strong {
+      font-size: 1.6rem;
+      font-family: var(--font-serif);
+      color: var(--brand-primary);
+      line-height: 1;
+    }
+
+    .radial-inner span {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .check-list {
+      list-style: none;
+      width: 100%;
+      text-align: left;
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      font-weight: 500;
+      margin-bottom: 0.65rem;
+    }
+
+    .check-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--brand-primary);
+      color: #FFFFFF;
+      font-size: 0.7rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================
+       FEATURED PROJECTS
+       ========================================================== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background: var(--surface-white);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--brand-primary);
+    }
+
+    .project-header-band {
+      height: 70px;
+      background: linear-gradient(135deg, #E6F3F1 0%, #FAF7F2 100%);
+      display: flex;
+      align-items: center;
+      padding: 0 1.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--brand-pill-text);
+      letter-spacing: 0.5px;
+    }
+
+    .project-content {
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .project-content h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--text-dark);
+      margin-bottom: 0.6rem;
+    }
+
+    .project-content p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .project-tags span {
+      background: var(--surface-soft);
+      color: var(--brand-pill-text);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+      border: 1px solid var(--border-teal);
+    }
+
+    .project-spec {
+      background: var(--surface-ivory-card);
+      border: 1px dashed var(--border-subtle);
+      padding: 0.85rem 1.1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: var(--text-dark);
+      margin-bottom: 1.4rem;
+    }
+
+    .project-link-btn {
+      color: var(--brand-primary);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: gap 0.2s;
+    }
+
+    .project-link-btn:hover {
+      gap: 0.55rem;
+    }
+
+    /* ==========================================================
+       CERTIFICATIONS SECTION
+       ========================================================== */
+    .cert-group-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .cert-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .cert-card-item {
+      background: var(--surface-white);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 1.6rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .cert-card-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--brand-primary);
+    }
+
+    .cert-badge-tag {
+      display: inline-block;
+      background: var(--surface-soft);
+      color: var(--brand-pill-text);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.7rem;
+      border-radius: 50px;
+      margin-bottom: 0.8rem;
+      width: fit-content;
+      letter-spacing: 0.3px;
+      border: 1px solid rgba(15, 118, 110, 0.15);
+    }
+
+    .cert-card-item h3 {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: var(--text-dark);
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+
+    .cert-company {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--brand-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .cert-meta-info {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 0.8rem;
+    }
+
+    /* ==========================================================
+       CERTIFICATE IMAGE POPUP (MODAL)
+       ========================================================== */
+    .cert-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(30, 41, 39, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .cert-modal.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .cert-modal-content {
+      background: var(--surface-white);
+      border-radius: 16px;
+      padding: 1rem;
+      max-width: 850px;
+      width: 100%;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+      animation: modalZoom 0.25s ease-out;
+    }
+
+    @keyframes modalZoom {
+      from { transform: scale(0.92); }
+      to { transform: scale(1); }
+    }
+
+    .cert-modal-close {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      width: 38px;
+      height: 38px;
+      background: var(--brand-primary);
+      color: #FFFFFF;
+      border: 2px solid var(--surface-white);
+      border-radius: 50%;
+      font-size: 1.3rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: background 0.2s;
+    }
+
+    .cert-modal-close:hover {
+      background: var(--brand-hover);
+    }
+
+    .cert-modal-img {
+      max-width: 100%;
+      max-height: 75vh;
+      border-radius: 8px;
+      object-fit: contain;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    .cert-modal-caption {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      font-weight: 600;
+      text-align: center;
+    }
+
+    /* ==========================================================
+       CONTACT SECTION ("Let's Connect")
+       ========================================================== */
+    .contact-card-wrap {
+      background: var(--surface-white);
+      border: 1px solid var(--border-subtle);
+      border-radius: 24px;
+      box-shadow: var(--shadow-md);
+      padding: 3rem 2.5rem;
+      margin-top: 2rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 3rem;
+    }
+
+    .contact-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .contact-icon-bubble {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--surface-soft);
+      border: 1px solid var(--border-subtle);
+      color: var(--brand-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-icon-bubble svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Form */
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.85rem 1.1rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+      background: var(--surface-ivory-card);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-control:focus {
+      border-color: var(--brand-primary);
+      box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
+      background: var(--surface-white);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    /* ==========================================================
+       FOOTER
+       ========================================================== */
+    footer {
+      text-align: center;
+      padding: 2.5rem 0;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      border-top: 1px solid var(--border-subtle);
+      background: rgba(250, 247, 242, 0.9);
+      margin-top: 3rem;
+    }
+
+    footer span {
+      color: var(--brand-primary);
+      font-weight: 600;
+    }
+
+    /* Notification Toast */
+    .toast {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: var(--brand-primary);
+      color: #FFFFFF;
+      padding: 0.9rem 1.5rem;
+      border-radius: 50px;
+      box-shadow: var(--shadow-lg);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 9999;
+    }
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ==========================================================
+       RESPONSIVE BREAKPOINTS
+       ========================================================== */
+    @media (max-width: 900px) {
+      .hero-grid, .about-grid, .skills-layout, .education-grid, .projects-grid, .cert-cards-grid, .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .hero-image-wrap { order: -1; }
+      .navbar .nav-links { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .portrait-arch { width: 270px; height: 350px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .contact-card-wrap { padding: 2rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certificates</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn-talk-small">Let's Talk →</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="hero-pretitle">Hello, I'm</p>
+          <h1 class="hero-name">Yaraguti Roopanjali<span>.</span></h1>
+          <p class="hero-role">Aspiring Software Engineer & Web Developer</p>
+          <p class="hero-desc">
+            Computer Science undergraduate at Madanapalle Institute of Technology & Science (8.5 CGPA). Focused on structured problem-solving, Java development, and clean, accessible web user interfaces.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View My Projects →</a>
+          </div>
+
+          <!-- Official Vector SVG Social Buttons -->
+          <div class="social-row">
+            <a href="https://github.com/Roopanjali00" target="_blank" class="social-btn" title="GitHub" aria-label="GitHub">
+              <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/yaraguti-roopanjali-5b005232b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="social-btn" title="LinkedIn" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="mailto:roopanjali.1509@gmail.com" class="social-btn" title="Email" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Arch Profile Portrait Frame -->
+        <div class="hero-image-wrap">
+          <div class="portrait-arch">
+            <div class="portrait-inner">
+              <img src="profile.jpg.jpeg" alt="Yaraguti Roopanjali" class="profile-photo" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ABOUT ME SECTION ==================== -->
+    <section id="about" class="section-spacing">
+      <div class="container about-grid">
+        <div class="about-text">
+          <div class="pill-badge">About Me</div>
+          <h2 class="section-title">Know Me <span>Better</span></h2>
+          <p class="section-subtitle" style="margin-bottom: 1.5rem;">Dedicated to core engineering principles, Java, and modern web software.</p>
+          
+          <p>
+            I'm <strong>Yaraguti Roopanjali</strong>, an engineering undergraduate pursuing my B.Tech degree at <strong>Madanapalle Institute of Technology & Science</strong> with an academic record of <strong>8.5 CGPA</strong>.
+          </p>
+          <p>
+            I focus on logical problem-solving, modular software design, and accessible user interfaces. Having completed practical technical internships at <strong>YoungMinds</strong> and <strong>InternPe</strong>, along with national <strong>NPTEL Elite Certifications</strong> from premier IITs, I take pride in clean code structure, data validation, and reliable implementations.
+          </p>
+
+          <a href="#contact" class="btn btn-primary" style="margin-top: 0.5rem;">Contact Me →</a>
+        </div>
+
+        <div class="about-card-mockup">
+          <div class="cup-badge">
+            <h4>Code. Solve. Deliver.</h4>
+            <p>Committed to continuous growth & technical engineering excellence</p>
+          </div>
+          <div class="about-pills-row">
+            <div class="detail-pill">
+              <small>College</small>
+              <strong>MITS, Madanapalle</strong>
+            </div>
+            <div class="detail-pill">
+              <small>CGPA</small>
+              <strong>8.5 / 10</strong>
+            </div>
+            <div class="detail-pill">
+              <small>Location</small>
+              <strong>Nellore, Andhra Pradesh</strong>
+            </div>
+            <div class="detail-pill">
+              <small>Domain</small>
+              <strong>Java & Web Development</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ACADEMIC JOURNEY (EDUCATION) ==================== -->
+    <section id="education" class="section-spacing" style="background: rgba(230, 243, 241, 0.35);">
+      <div class="container">
+        <div class="pill-badge">Milestones</div>
+        <h2 class="section-title">Academic <span>Journey</span></h2>
+        <p class="section-subtitle">Formal education credentials and academic track record</p>
+
+        <div class="education-grid">
+          <!-- B.Tech Card -->
+          <div class="edu-card">
+            <div>
+              <span class="edu-badge-tag">Graduation • Engineering</span>
+              <h3>B.Tech in CSE</h3>
+              <p class="edu-institution">Madanapalle Institute of Technology & Science</p>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.2rem;">
+                Computer Science and Engineering with a focus on core software development, algorithms, and web technologies.
+              </p>
+            </div>
+            <div class="edu-score-box">
+              <strong>8.5 CGPA</strong>
+              <span>Academic Performance</span>
+            </div>
+          </div>
+
+          <!-- Intermediate Card -->
+          <div class="edu-card">
+            <div>
+              <span class="edu-badge-tag">Higher Secondary • 10+2</span>
+              <h3>Intermediate (MPC)</h3>
+              <p class="edu-institution">Mathematics, Physics & Chemistry</p>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.2rem;">
+                Higher secondary education with strong analytical foundations in advanced mathematics and physical sciences.
+              </p>
+            </div>
+            <div class="edu-score-box">
+              <strong>9.5 GPA / 95%</strong>
+              <span>Board Examination Score</span>
+            </div>
+          </div>
+
+          <!-- SSC Card -->
+          <div class="edu-card">
+            <div>
+              <span class="edu-badge-tag">Secondary School • 10th</span>
+              <h3>Secondary School Certificate</h3>
+              <p class="edu-institution">ZPP High School</p>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.2rem;">
+                Completed secondary school education with high academic achievement across sciences and mathematics.
+              </p>
+            </div>
+            <div class="edu-score-box">
+              <strong>80%</strong>
+              <span>SSC Examination Aggregate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SKILLS SECTION ==================== -->
+    <section id="skills" class="section-spacing">
+      <div class="container">
+        <div class="pill-badge">My Skills</div>
+        <h2 class="section-title">Technical <span>Proficiencies</span></h2>
+        <p class="section-subtitle">Core languages, web technologies, and computational foundations</p>
+
+        <div class="skills-layout">
+          <div class="skills-grid">
+            <div class="skill-card">
+              <div class="skill-icon-wrap">&lt;/&gt;</div>
+              <div class="skill-name">Java</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon-wrap">HTML</div>
+              <div class="skill-name">HTML5</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon-wrap">CSS</div>
+              <div class="skill-name">CSS3</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon-wrap">JS</div>
+              <div class="skill-name">JavaScript</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon-wrap">OOP</div>
+              <div class="skill-name">OOP Concepts</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon-wrap">SQL</div>
+              <div class="skill-name">Relational DB</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon-wrap">GIT</div>
+              <div class="skill-name">Git & GitHub</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon-wrap">UI</div>
+              <div class="skill-name">Responsive Web</div>
+            </div>
+          </div>
+
+          <div class="skill-progress-card">
+            <div class="radial-circle">
+              <div class="radial-inner">
+                <strong>8.5</strong>
+                <span>CGPA Metric</span>
+              </div>
+            </div>
+            <ul class="check-list">
+              <li><span class="check-icon">✓</span> Object-Oriented Principles</li>
+              <li><span class="check-icon">✓</span> Database Normalization & SQL</li>
+              <li><span class="check-icon">✓</span> Semantic & Accessible UI Layouts</li>
+              <li><span class="check-icon">✓</span> Fast & Systematic Learning</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FEATURED PROJECTS (2 Projects) ==================== -->
+    <section id="projects" class="section-spacing">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <div class="pill-badge">Software Systems</div>
+            <h2 class="section-title">Featured <span>Projects</span></h2>
+            <p class="section-subtitle">Real-world applications with structured engineering design</p>
+          </div>
+          <a href="https://github.com/Roopanjali00" target="_blank" class="btn btn-primary" style="background: var(--surface-white); color: var(--text-dark); border: 1px solid var(--border-subtle); box-shadow: none;">View GitHub Repositories →</a>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: Hospital Management -->
+          <div class="project-card">
+            <div class="project-header-band">SYSTEM ARCHITECTURE • HEALTHCARE</div>
+            <div class="project-content">
+              <div>
+                <h3>Hospital Management System</h3>
+                <p>
+                  A structured software system to manage patient admissions, doctor schedules, room occupancy, and medical consultation records with robust validation.
+                </p>
+                <div class="project-spec">
+                  <strong>Key Modules:</strong> Role-based access control, appointment booking pipeline, patient data validation, and query-based record retrieval.
+                </div>
+                <div class="project-tags">
+                  <span>Java</span>
+                  <span>HTML5</span>
+                  <span>CSS3</span>
+                  <span>JavaScript</span>
+                  <span>SQL</span>
+                </div>
+              </div>
+              <a href="https://github.com/Roopanjali00" target="_blank" class="project-link-btn">Inspect Code Details →</a>
+            </div>
+          </div>
+
+          <!-- Project 2: Classroom Allotment -->
+          <div class="project-card">
+            <div class="project-header-band">ALGORITHMIC SCHEDULING • EDUCATION</div>
+            <div class="project-content">
+              <div>
+                <h3>Classroom Allotment & Notification System</h3>
+                <p>
+                  An intelligent schedule coordinator designed to eliminate room clashes through dynamic room allocation and broadcast notifications to students and faculty.
+                </p>
+                <div class="project-spec">
+                  <strong>Key Modules:</strong> Conflict-avoidance scheduling logic, real-time timetable updates, room capacity matching, and notification triggers.
+                </div>
+                <div class="project-tags">
+                  <span>Java</span>
+                  <span>JavaScript</span>
+                  <span>DOM Manipulation</span>
+                  <span>Event Handling</span>
+                </div>
+              </div>
+              <a href="https://github.com/Roopanjali00" target="_blank" class="project-link-btn">Inspect Code Details →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CERTIFICATIONS SECTION (ALL 6 CERTIFICATES) ==================== -->
+    <section id="certifications" class="section-spacing">
+      <div class="container">
+        <div class="pill-badge">Verified Credentials</div>
+        <h2 class="section-title">Certificates & <span>Achievements</span></h2>
+        <p class="section-subtitle">Industry internships and National NPTEL Elite Certifications (Click to view full certificate)</p>
+
+        <!-- Category 1: Internship Certificates -->
+        <h3 class="cert-group-title">Industry Internships</h3>
+        <div class="cert-cards-grid">
+          <!-- Certificate 1: YoungMinds -->
+          <div class="cert-card-item">
+            <div>
+              <span class="cert-badge-tag">YoungMinds Technology Solutions</span>
+              <h3>Java Internship Completion</h3>
+              <p class="cert-company">YoungMinds Technology Solutions Pvt Ltd.</p>
+              <div class="cert-meta-info">
+                <p><strong>Role:</strong> Java Programming Intern</p>
+                <p><strong>Duration:</strong> 06.06.2026 to 01.08.2026</p>
+                <p><strong>Verification ID:</strong> TK214987 (Ref: YMTS/Internship-9076/26)</p>
+              </div>
+            </div>
+            <button type="button" class="btn-cert-view" onclick="openCertModal('youngminds-cert.jpg.png', 'YoungMinds Technology Solutions — Java Internship Certificate')">
+              View Certificate ↗
+            </button>
+          </div>
+
+          <!-- Certificate 2: InternPe -->
+          <div class="cert-card-item">
+            <div>
+              <span class="cert-badge-tag">InternPe</span>
+              <h3>Java Programming Internship</h3>
+              <p class="cert-company">InternPe</p>
+              <div class="cert-meta-info">
+                <p><strong>Role:</strong> Java Programming Intern</p>
+                <p><strong>Duration:</strong> 18-MAY-2026 to 12-JULY-2026</p>
+                <p><strong>Certificate ID:</strong> IPI#75176 (Verified on internpe.in)</p>
+              </div>
+            </div>
+            <button type="button" class="btn-cert-view" onclick="openCertModal('internpe-cert.jpg.jpeg', 'InternPe — Java Programming Internship Certificate')">
+              View Certificate ↗
+            </button>
+          </div>
+        </div>
+
+        <!-- Category 2: NPTEL Elite Online Certifications -->
+        <h3 class="cert-group-title">NPTEL Elite Certifications (MoE, Govt. of India)</h3>
+        <div class="cert-cards-grid">
+          
+          <!-- NPTEL 1: Privacy and Security -->
+          <div class="cert-card-item">
+            <div>
+              <span class="cert-badge-tag">NPTEL Elite • Score: 75%</span>
+              <h3>Privacy and Security in Online Social Media</h3>
+              <p class="cert-company">IIIT Hyderabad / NPTEL (12-Week Course)</p>
+              <div class="cert-meta-info">
+                <p><strong>Timeline:</strong> Jul-Oct 2026 • 4 Credits</p>
+                <p><strong>Assignments:</strong> 22.97/25 • <strong>Exam:</strong> 51.75/75</p>
+                <p><strong>Roll No:</strong> NPTEL26CS141S1380502038</p>
+              </div>
+            </div>
+            <button type="button" class="btn-cert-view" onclick="openCertModal('nptel-privacy.jpg.png', 'NPTEL Elite — Privacy and Security in Online Social Media (IIIT Hyderabad)')">
+              View Certificate ↗
+            </button>
+          </div>
+
+          <!-- NPTEL 2: Big Data Computing -->
+          <div class="cert-card-item">
+            <div>
+              <span class="cert-badge-tag">NPTEL Elite • Score: 68%</span>
+              <h3>Big Data Computing</h3>
+              <p class="cert-company">IIT Kanpur / NPTEL (8-Week Course)</p>
+              <div class="cert-meta-info">
+                <p><strong>Timeline:</strong> Aug-Oct 2026 • 3 Credits</p>
+                <p><strong>Assignments:</strong> 25/25 • <strong>Exam:</strong> 42.75/75</p>
+                <p><strong>Roll No:</strong> NPTEL26CS189S1480502038</p>
+              </div>
+            </div>
+            <button type="button" class="btn-cert-view" onclick="openCertModal('nptel-bigdata.jpg.png', 'NPTEL Elite — Big Data Computing (IIT Kanpur)')">
+              View Certificate ↗
+            </button>
+          </div>
+
+          <!-- NPTEL 3: Understanding Incubation and Entrepreneurship -->
+          <div class="cert-card-item">
+            <div>
+              <span class="cert-badge-tag">NPTEL Elite Gold • Score: 91%</span>
+              <h3>Understanding Incubation and Entrepreneurship</h3>
+              <p class="cert-company">IIT Bombay / NPTEL (12-Week Course)</p>
+              <div class="cert-meta-info">
+                <p><strong>Timeline:</strong> Jan-Apr 2026 • 4 Credits</p>
+                <p><strong>Assignments:</strong> 24.85/25 • <strong>Exam:</strong> 66/75</p>
+                <p><strong>Roll No:</strong> NPTEL26DE06S2185201688</p>
+              </div>
+            </div>
+            <button type="button" class="btn-cert-view" onclick="openCertModal('nptel-incubation.jpg.png', 'NPTEL Elite Gold (91%) — Understanding Incubation and Entrepreneurship (IIT Bombay)')">
+              View Certificate ↗
+            </button>
+          </div>
+
+          <!-- NPTEL 4: Product Engineering and Design Thinking -->
+          <div class="cert-card-item">
+            <div>
+              <span class="cert-badge-tag">NPTEL Elite Silver • Score: 82%</span>
+              <h3>Product Engineering and Design Thinking</h3>
+              <p class="cert-company">IIT Kharagpur / NPTEL (8-Week Course)</p>
+              <div class="cert-meta-info">
+                <p><strong>Timeline:</strong> Jan-Mar 2026 • 3 Credits</p>
+                <p><strong>Assignments:</strong> 25/25 • <strong>Exam:</strong> 57/75</p>
+                <p><strong>Roll No:</strong> NPTEL26ME57S561500648</p>
+              </div>
+            </div>
+            <button type="button" class="btn-cert-view" onclick="openCertModal('nptel-design.jpg.png', 'NPTEL Elite (82%) — Product Engineering and Design Thinking (IIT Kharagpur)')">
+              View Certificate ↗
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section id="contact" class="section-spacing">
+      <div class="container">
+        <div class="contact-card-wrap">
+          <div class="contact-grid">
+            <div>
+              <div class="pill-badge">Get In Touch</div>
+              <h2 class="section-title">Let's <span>Connect</span></h2>
+              <p class="section-subtitle">
+                Looking for internship or entry-level software opportunities. Reach out directly or send a message below!
+              </p>
+
+              <div class="contact-info-list">
+                <a href="mailto:roopanjali.1509@gmail.com" class="contact-row">
+                  <div class="contact-icon-bubble">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  </div>
+                  <span>roopanjali.1509@gmail.com</span>
+                </a>
+                <a href="tel:9391266505" class="contact-row">
+                  <div class="contact-icon-bubble">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  </div>
+                  <span>+91 9391266505</span>
+                </a>
+                <div class="contact-row">
+                  <div class="contact-icon-bubble">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  </div>
+                  <span>Nellore, Andhra Pradesh, India</span>
+                </div>
+              </div>
+
+              <!-- Official Vector SVG Icons -->
+              <div class="social-row">
+                <a href="https://github.com/Roopanjali00" target="_blank" class="social-btn" title="GitHub" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/yaraguti-roopanjali-5b005232b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="social-btn" title="LinkedIn" aria-label="LinkedIn">
+                  <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="mailto:roopanjali.1509@gmail.com" class="social-btn" title="Email" aria-label="Email">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Interactive Form -->
+            <form id="contactForm">
+              <div class="form-group">
+                <input type="text" id="nameInput" class="form-control" placeholder="Your Name" required />
+              </div>
+              <div class="form-group">
+                <input type="email" id="emailInput" class="form-control" placeholder="Your Email Address" required />
+              </div>
+              <div class="form-group">
+                <textarea id="messageInput" class="form-control" placeholder="Write your message..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message →</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== CERTIFICATE PREVIEW MODAL ==================== -->
+  <div id="certModal" class="cert-modal" onclick="closeCertOnBackdrop(event)">
+    <div class="cert-modal-content">
+      <button type="button" class="cert-modal-close" onclick="closeCertModal()" aria-label="Close Certificate">&times;</button>
+      <img id="modalCertImg" src="" alt="Certificate Preview" class="cert-modal-img" />
+      <p id="modalCertCaption" class="cert-modal-caption"></p>
+    </div>
+  </div>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div class="container">
+      <p>Built by <strong>Yaraguti Roopanjali</strong> • © 2026 All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="toast">Message sent successfully!</div>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    // 1. Navigation Highlighting
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('section');
+
+    window.addEventListener('scroll', () => {
+      let currentSection = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (window.scrollY >= sectionTop) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentSection}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // 2. Certificate Modal Logic (Works for all 6 certificates)
+    const certModal = document.getElementById('certModal');
+    const modalCertImg = document.getElementById('modalCertImg');
+    const modalCertCaption = document.getElementById('modalCertCaption');
+
+    function openCertModal(imageSrc, captionText) {
+      modalCertImg.src = imageSrc;
+      modalCertCaption.textContent = captionText;
+      certModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCertModal() {
+      certModal.classList.remove('active');
+      document.body.style.overflow = '';
+      modalCertImg.src = '';
+    }
+
+    function closeCertOnBackdrop(e) {
+      if (e.target === certModal) {
+        closeCertModal();
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && certModal.classList.contains('active')) {
+        closeCertModal();
+      }
+    });
+
+    // 3. Contact Form Submission
+    const contactForm = document.getElementById('contactForm');
+    const toast = document.getElementById('toast');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('nameInput').value;
+      toast.textContent = `Thank you, ${name}! Your message has been sent.`;
+      toast.classList.add('show');
+      contactForm.reset();
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 4000);
+    });
+  </script>
+</body>
+</html>
